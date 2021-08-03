@@ -1,0 +1,27 @@
+syntax = "proto3"
+
+
+message User {
+	int64 id = 1;
+	string name = 2;
+	string avatarUrl = 3;
+}
+
+message RegisterUserRequest {
+	string name = 1;
+	string email = 2;
+	string password = 3;
+}
+
+message FindUser {
+	int64 id = 1;
+}
+
+message TokenResponse {
+	string token = 1;
+}
+service UserService {
+	rpc Register(RegisterUserRequest) returnes (TokenResponse) {}
+	rpc Login(RegisterUserRequest) returnes (TokenResponse) {}
+	rpc Find(FindUser) returnes (User) {}
+}
