@@ -5,7 +5,7 @@ import (
 )
 
 type User struct {
-	Id                int64
+	Id                int64	 `gorm:"primaryKey"`
 	Name              string
 	AvatarUrl         string
 	Token             string `json:"-"`
@@ -19,7 +19,7 @@ func (self *User) ApplyPassword(password string) error {
 	if err != nil {
 		return err
 	}
-	self.EncryptedPassword = hash
+	self.EncryptedPassword = string(hash)
 	return nil
 }
 
