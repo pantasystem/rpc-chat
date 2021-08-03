@@ -5,3 +5,12 @@ services:
         tty: true
         volumes:
             - .:/go/src/work
+
+    db:
+        image: mariadb:10.6.2
+        environment:
+            MYSQL_DATABASE: database
+            MYSQL_USER: test
+            MYSQL_PASSWORD: password
+            MYSQL_ROOT_PASSWORD: laravel-lesson-root
+            TZ: Asia/Tokyo
