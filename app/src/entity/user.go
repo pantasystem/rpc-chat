@@ -8,8 +8,8 @@ type User struct {
 	Id                int64	 `gorm:"primaryKey"`
 	Name              string
 	AvatarUrl         string
-	Token             string `json:"-"`
-	Email             string `json:"-"`
+	Token             string `json:"-"; gorm:"unique;not null"`
+	Email             string `json:"-"; gorm:"unique;not null"`
 	EncryptedPassword string `json:"-"`
 }
 
