@@ -9,7 +9,7 @@ import (
 )
 
 type PostService struct {
-	Core *core.Core
+	Core core.Core
 }
 
 func (self *PostService) Create(ctx context.Context, req *pb.CreatePost) (*pb.Post, error) {

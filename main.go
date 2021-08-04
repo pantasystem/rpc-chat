@@ -43,8 +43,12 @@ func main() {
 		Core: core,
 	}
 
+	postService := &service.PostService{
+		Core: core,
+	}
 
 	pb.RegisterUserServiceServer(server, userService)
+	pb.RegisterPostServiceServer(server, postService)
 	server.Serve(listen)
 
 	
