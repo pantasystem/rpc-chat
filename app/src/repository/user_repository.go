@@ -5,9 +5,9 @@ import (
 )
 
 type UserRepository interface {
-
 	Find(userId int64) (*entity.User, error)
 	FindByEmail(email string) (*entity.User, error)
+	FindByToken(token string) (*entity.User, error)
 	Create(user entity.User) (*entity.User, error)
 	Update(user entity.User) (*entity.User, error)
 }

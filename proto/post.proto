@@ -18,9 +18,14 @@ message CreatePost {
 
 message RequestPosts {
     string token = 1;
+    int64 untilId = 2;
+}
+
+message Posts {
+    repeated Post posts = 1;
 }
 
 service PostService {
     rpc Create(CreatePost) returns (Post) {}
-    rpc FindAll(RequestPosts) returns (Post) {}
+    rpc FindAll(RequestPosts) returns (Posts) {}
 }

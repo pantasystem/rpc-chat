@@ -37,3 +37,11 @@ func (self *UserRepositoryDB) Update(user entity.User) (*entity.User, error) {
 	}
 	return &user, nil
 }
+
+func (self *UserRepositoryDB) FindByToken(token string) (*entity.User, error) {
+	var user entity.User
+	if result := self.Repository.DB.Where("token = ?", token).First(&user); result.Error != nil {
+		return nil, result.Error
+	}
+	return &user, nil
+}
