@@ -15,7 +15,11 @@ message CreatePost {
     string text = 2;
 }
 
+message RequestPosts {
+    string token = 1;
+}
+
 service PostService {
     rpc Create(CreatePost) returns (Post) {}
-    rpc FindAll() returns (Post) {}
+    rpc FindAll(RequestPosts) returns (Post) {}
 }
