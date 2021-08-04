@@ -30,3 +30,10 @@ func (self *UserRepositoryDB) Create(user entity.User) (*entity.User, error) {
 	}
 	return &user, nil
 }
+
+func (self *UserRepositoryDB) Update(user entity.User) (*user.User, error) {
+	if r := self.Repository.DB.Save(&user); r.Error != nil {
+		return nil, r.Error
+	}
+	return &user, nil
+}

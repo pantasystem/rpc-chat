@@ -12,3 +12,7 @@ type Repository struct {
 func (self *Repository) UserRepository() repository.UserRepository {
 	return &UserRepositoryDB{self}
 }
+
+func (self *Repository) PostRepository() repository.PostRepository {
+	return &PostRepositoryDB{self}
+}

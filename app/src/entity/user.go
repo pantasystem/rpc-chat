@@ -27,3 +27,6 @@ func (self *User) CheckRawPassword(password string) bool {
 	return bcrypt.CompareHashAndPassword([]byte(self.EncryptedPassword), []byte(password)) == nil
 }
 
+func (self *User) GenerateToken() {
+	
+}
