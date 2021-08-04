@@ -1,7 +1,7 @@
 package service
 
 import (
-	pb "com.github.Kinoshita0623/rpc-chat/app/src/service/pb"
+	pb "com.github/Kinoshita0623/rpc-chat/app/src/service/pb"
 	"context"
 	"com.github/Kinoshita0623/rpc-chat/app/src/core"
 	"com.github/Kinoshita0623/rpc-chat/app/src/entity"
@@ -30,7 +30,7 @@ func (self *UserService) Register(ctx context.Context, req *pb.RegisterUserReque
 }
 
 func (self *UserService) Login(ctx context.Context,req  *pb.RegisterUserRequest) (*pb.TokenResponse, error) {
-	u, err := self.Core.Repository().UserRepository().FindByEmail(pb.Email)
+	u, err := self.Core.Repository.UserRepository().FindByEmail(req.Email)
 	if err != nil {
 		return nil, err
 	}
@@ -44,13 +44,12 @@ func (self *UserService) Login(ctx context.Context,req  *pb.RegisterUserRequest)
 }
 
 func (self *UserService) Find(ctx context.Context, req *pb.FindUser) (*pb.User, error) {
-	u, err := self.Core.Repository().UserRepository().Find(req.Id)
+	u, err := self.Core.Repository.UserRepository().Find(req.Id)
 	if err != nil {
 		return nil, err
 	}
 	return &pb.User {
-		Email: u.Email,
 		Name: u.Token,
-		Id: u.Token,
+		Id: u.Id,
 	}, nil
 }

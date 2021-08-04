@@ -11,7 +11,6 @@ import (
 	"com.github/Kinoshita0623/rpc-chat/app/src/service"
 	pb "com.github/Kinoshita0623/rpc-chat/app/src/service/pb"
 	"net"
-	"os"
 	"google.golang.org/grpc"
 
 
@@ -31,7 +30,7 @@ func main() {
 	core := core.Core{
 		Repository: &impl.Repository {
 			DB: db,
-		}
+		},
 	}
 
 	listen, err := net.Listen("tcp", ":19004")
