@@ -2,6 +2,7 @@ syntax = "proto3";
 
 option go_package="app/src/service/pb";
 
+import "proto/user.proto";
 
 message Post {
     int64 id = 1;
