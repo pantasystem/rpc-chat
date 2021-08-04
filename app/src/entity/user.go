@@ -2,6 +2,7 @@ package entity
 
 import (
 	"golang.org/x/crypto/bcrypt"
+	"github.com/google/uuid"
 )
 
 type User struct {
@@ -28,5 +29,9 @@ func (self *User) CheckRawPassword(password string) bool {
 }
 
 func (self *User) GenerateToken() {
-	
+	u, err := uuid.NewRandom()
+	if err != nil {
+		return
+	}
+	self.Token = u.String()
 }
