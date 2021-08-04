@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "app/src/service"; 
+option go_package = "app/src/service/pb"; 
 
 message User {
 	int64 id = 1;
