@@ -1,4 +1,4 @@
-syntax = "proto3"
+syntax = "proto3";
 
 option go_package = "app/src/service"; 
 
@@ -22,7 +22,7 @@ message TokenResponse {
 	string token = 1;
 }
 service UserService {
-	rpc Register(RegisterUserRequest) returnes (TokenResponse) {}
-	rpc Login(RegisterUserRequest) returnes (TokenResponse) {}
-	rpc Find(FindUser) returnes (User) {}
+	rpc Register(RegisterUserRequest) returns (TokenResponse) {}
+	rpc Login(RegisterUserRequest) returns (TokenResponse) {}
+	rpc Find(FindUser) returns (User) {}
 }
