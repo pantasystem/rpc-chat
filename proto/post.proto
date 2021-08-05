@@ -1,6 +1,8 @@
 syntax = "proto3";
 
 option go_package="app/src/service/pb";
+option java_package="jp.panta.rpcchat.pb";
+option java_outer_classname="PostProtos";
 
 import "proto/user.proto";
 
